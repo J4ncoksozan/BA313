@@ -148,7 +148,7 @@ def print_summary():
             print(f"  {marker} {status}: {count} responses")
 
     print("=" * 65)
-    print("🇵🇸," [VOLATILE PURGE] Memory registers wiped cleanly. Session matrices dissolved.")
+    print("🇵🇸 [VOLATILE PURGE] Memory registers wiped cleanly. Session matrices dissolved.")
 
 def main():
     print_banner()
@@ -164,7 +164,7 @@ def main():
         target_ip = socket.gethostbyname(host)
         net_type = analyze_network_type(target_ip)
     except socket.gaierror:
-        print("🇵🇸, [NET_FAILURE] Host resolution failed. Target isolated or offline.")
+        print("🇵🇸 [NET_FAILURE] Host resolution failed. Target isolated or offline.")
         return
 
     # User Configuration Input Engine
