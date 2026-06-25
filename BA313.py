@@ -119,11 +119,11 @@ def execute_network_probe(host, port, scheme, path, timeout, net_type):
 
 def print_banner():
     """Renders the custom BA313 box art banner frame layout cleanly."""
-    print("■■■    ■          ■        ■■■  ■   ■     ■      ■■■     ■■  ■■    ■     ■")
-    print("■   ■   ■        ■  ■      ■     ■  ■     ■ ■     ■   ■   ■  ■  ■     ■   ■")
-    print("■■■    ■       ■■■■■     ■     ■■      ■■■■    ■■      ■     ■      ■■■")
-    print("■   ■   ■      ■      ■    ■     ■  ■    ■    ■   ■  ■    ■     ■        ■")
-    print("■■■    ■■■  ■        ■   ■■■  ■   ■  ■      ■  ■   ■   ■     ■        ■")
+    print("======    ==          ===      =======  ==  ==      ===       ======     ==     ==   ==     ==")
+    print("==   ==   ==         == ==     ==       == ==      == ==      ==   ==    == === ==     ==  ==")
+    print("======    ==        =======    ==       ===       =======     =====      ==  =  ==       ==")
+    print("==   ==   ==       ==     ==   ==       == ==    ==     ==    ==   ==    ==     ==       ==")
+    print("======    ======  ==       ==  =======  ==  ==  ==       ==   ==    ==   ==     ==       ==")
     print(" >> BA313 MATRIX ENGAGED // PALESTINE PERSISTENCE ACTIVE\n")
 
 def print_summary():
