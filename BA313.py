@@ -46,7 +46,7 @@ def analyze_network_type(ip_address):
             (octets[0] == 192 and octets[1] == 168)):
             return "Private LAN"
 
-        return "Attacks ðŸš€ðŸ’¥"
+        return "Attacks 🇵🇸"
     except Exception:
         return "Invalid/Unknown"
 
@@ -115,7 +115,7 @@ def execute_network_probe(host, port, scheme, path, timeout, net_type):
 
     except Exception:
         SESSION_METRICS["http_status_distribution"]["Connection Dropped/Timed Out"] += 1
-        print(f"ðŸ’€ [DROP_ALERT] Route: {net_type} | Frame Status: Dropped/Filtered Network Pipeline")
+        print("🇵🇸 [DROP_ALERT] Route: {net_type} | Frame Status: Dropped/Filtered Network Pipeline")
 
 def print_banner():
     """Renders the custom BA313 box art banner frame layout cleanly."""
@@ -134,7 +134,7 @@ def print_summary():
     print("               🇵🇸  LIVE NETWORK TERMINAL SUMMARY  🇵🇸               ")
     print("=" * 65)
     print(f" 📝¸  Total Probes Dispatched:  {SESSION_METRICS['total_packets']}")
-    print(f" â³ Average Pipeline Latency:  {avg_latency:.4f} seconds")
+    print(f" 📝, Average Pipeline Latency:  {avg_latency:.4f} seconds")
 
     print("\n[🔈’ ] NETWORK ROUTING DISTRIBUTION:")
     for network, count in SESSION_METRICS["network_types"].items():
@@ -144,7 +144,7 @@ def print_summary():
     print("\n[🇵🇸] TARGET PROTOCOL DISTRIBUTION:")
     for status, count in SESSION_METRICS["http_status_distribution"].items():
         if count > 0:
-            marker = "🇵🇸" if "200" in status else ("🇵🇸¸" if "400" in status or "Dropped" in status else "ðŸ›‘")
+            marker = "🇵🇸" if "200" in status else ("🇵🇸¸" if "400" in status or "Dropped" in status else "🇵🇸‘")
             print(f"  {marker} {status}: {count} responses")
 
     print("=" * 65)
@@ -170,7 +170,7 @@ def main():
     # User Configuration Input Engine
     print("\📝¸ [CONFIG ENGINE] Adjust parameters or press ENTER for Infinity parameters:")
 
-    packet_input = input(" â–«ï¸ Packets to stream [Default: 📝¸]: ").strip()
+    packet_input = input(" 🥳¸ Packets to stream [Default: 📝¸]: ").strip()
     infinite_packets = False if packet_input else True
     total_packets = int(packet_input) if not infinite_packets else 0
 
@@ -196,7 +196,7 @@ def main():
                     executor.submit(execute_network_probe, host, port, scheme, path, timeout, net_type)
                     time.sleep(0.001)  # Mitigates processor starvation
             else:
-                print("ðŸ’¥ [ATTACK ENGAGED] Finite transmission online.\n")
+                print("🇵🇸 [ATTACK ENGAGED] Finite transmission online.\n")
                 futures = [executor.submit(execute_network_probe, host, port, scheme, path, timeout, net_type) for _ in range(total_packets)]
                 for future in futures:
                     future.result()
