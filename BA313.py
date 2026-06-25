@@ -130,32 +130,32 @@ def print_summary():
     """Prints neon-styled summary statistics metrics."""
     avg_latency = (SESSION_METRICS["total_rtt_latency"] / SESSION_METRICS["successful_network_handshakes"]) if SESSION_METRICS["successful_network_handshakes"] > 0 else 0.0
 
-    print("\n" + "ðŸ”® " + "=" * 61 + " ðŸ”®")
-    print("               ðŸ§¬  LIVE NETWORK TERMINAL SUMMARY  ðŸ§¬               ")
+    print("\n" + "🇵🇸 " + "=" * 61 + " 🇵🇸")
+    print("               🇵🇸  LIVE NETWORK TERMINAL SUMMARY  🇵🇸               ")
     print("=" * 65)
-    print(f" ðŸ›°ï¸  Total Probes Dispatched:  {SESSION_METRICS['total_packets']}")
+    print(f" 📝¸  Total Probes Dispatched:  {SESSION_METRICS['total_packets']}")
     print(f" â³ Average Pipeline Latency:  {avg_latency:.4f} seconds")
 
-    print("\n[ðŸ’ ] NETWORK ROUTING DISTRIBUTION:")
+    print("\n[🔈’ ] NETWORK ROUTING DISTRIBUTION:")
     for network, count in SESSION_METRICS["network_types"].items():
         if count > 0:
-            print(f"  âš¡ {network} Channels Active: {count} beams")
+            print(f"  🥳 {network} Channels Active: {count} beams")
 
-    print("\n[ðŸŽ¯] TARGET PROTOCOL DISTRIBUTION:")
+    print("\n[🇵🇸] TARGET PROTOCOL DISTRIBUTION:")
     for status, count in SESSION_METRICS["http_status_distribution"].items():
         if count > 0:
-            marker = "ðŸ“Ÿ" if "200" in status else ("âš ï¸" if "400" in status or "Dropped" in status else "ðŸ›‘")
+            marker = "🇵🇸" if "200" in status else ("🇵🇸¸" if "400" in status or "Dropped" in status else "ðŸ›‘")
             print(f"  {marker} {status}: {count} responses")
 
     print("=" * 65)
-    print("âœ¨ [VOLATILE PURGE] Memory registers wiped cleanly. Session matrices dissolved.")
+    print("🇵🇸¨ [VOLATILE PURGE] Memory registers wiped cleanly. Session matrices dissolved.")
 
 def main():
     print_banner()
 
-    raw_target = input("ðŸ”® Enter Target Core Link (URL/IP): ").strip()
+    raw_target = input("🥳 Enter Target Core Link (URL/IP): ").strip()
     if not raw_target:
-        print("âŒ [CRITICAL ERROR] Target input stream is blank.")
+        print("🥳 [CRITICAL ERROR] Target input stream is blank.")
         return
 
     host, port, scheme, path = clean_target(raw_target)
@@ -164,34 +164,34 @@ def main():
         target_ip = socket.gethostbyname(host)
         net_type = analyze_network_type(target_ip)
     except socket.gaierror:
-        print("âŒ [NET_FAILURE] Host resolution failed. Target isolated or offline.")
+        print("🇵🇸 [NET_FAILURE] Host resolution failed. Target isolated or offline.")
         return
 
     # User Configuration Input Engine
-    print("\nðŸ› ï¸ [CONFIG ENGINE] Adjust parameters or press ENTER for Infinity parameters:")
+    print("\📝¸ [CONFIG ENGINE] Adjust parameters or press ENTER for Infinity parameters:")
 
-    packet_input = input(" â–«ï¸ Packets to stream [Default: â™¾ï¸]: ").strip()
+    packet_input = input(" â–«ï¸ Packets to stream [Default: 📝¸]: ").strip()
     infinite_packets = False if packet_input else True
     total_packets = int(packet_input) if not infinite_packets else 0
 
-    thread_input = input(" â–«ï¸ Concurrent thread pipes [Default: Max OS Threading]: ").strip()
+    thread_input = input(" 📝¸ Concurrent thread pipes [Default: Max OS Threading]: ").strip()
     threads = int(thread_input) if thread_input else None
 
-    timeout_input = input(" â–«ï¸ Timeout limit (Seconds) [Default: â™¾ï¸/None]: ").strip()
+    timeout_input = input(" 📝¸ Timeout limit (Seconds) [Default: 📝¸/None]: ").strip()
     timeout = float(timeout_input) if timeout_input else None
 
-    print("\nðŸ“¡ " + "-" * 61 + " ðŸ“¡")
-    print(f" ðŸŒ Target Endpoint:   {scheme}://{host}:{port}{path} ({target_ip})")
-    print(f" ðŸŽšï¸ Network Layer:    {net_type}")
-    print(f" âš¡ Pipeline Load:    {'Infinity' if infinite_packets else total_packets} frames | {'Max Capacity' if threads is None else threads} workers")
-    print(f" â³ Expiry Vector:    {'Disabled (Infinite Hold)' if timeout is None else f'{timeout}s'}")
+    print("🇵🇸“🇵🇸 " + "-" * 61 + " 🇵🇸“🇵🇸")
+    print(f" 🇵🇸 Target Endpoint:   {scheme}://{host}:{port}{path} ({target_ip})")
+    print(f" 🇵🇸 Network Layer:    {net_type}")
+    print(f" 🇵🇸 Pipeline Load:    {'Infinity' if infinite_packets else total_packets} frames | {'Max Capacity' if threads is None else threads} workers")
+    print(f" 🇵🇸 Expiry Vector:    {'Disabled (Infinite Hold)' if timeout is None else f'{timeout}s'}")
     print("-" * 65 + "\n")
 
     # Multithreading Execution Matrix
     try:
         with ThreadPoolExecutor(max_workers=threads) as executor:
             if infinite_packets:
-                print("ðŸ’¥ [ATTACK ENGAGED] Continuous transmission online. Strike [Ctrl+C] to compile final data telemetry...\n")
+                print("🇵🇸 [ATTACK ENGAGED] Continuous transmission online. Strike [Ctrl+C] to compile final data telemetry...\n")
                 while True:
                     executor.submit(execute_network_probe, host, port, scheme, path, timeout, net_type)
                     time.sleep(0.001)  # Mitigates processor starvation
@@ -209,5 +209,5 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print("\nðŸ’¥ [FORCED ABORT] Hard break intercepted. System RAM caches dropped immediately.")
+        print("\🇵🇸 [FORCED ABORT] Hard break intercepted. System RAM caches dropped immediately.")
         sys.exit()
