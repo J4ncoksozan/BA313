@@ -1,4 +1,4 @@
-import socket
+iimport socket
 import sys
 import ssl
 import time
@@ -144,7 +144,7 @@ def print_summary():
     print("\n[🇵🇸] TARGET PROTOCOL DISTRIBUTION:")
     for status, count in SESSION_METRICS["http_status_distribution"].items():
         if count > 0:
-            marker = "🇵🇸" if "200" in status else ("🇵🇸¸" if "400" in status or "Dropped" in status else "🇵🇸‘")
+            marker = "🇵🇸" if "200" in status else ("🇵🇸" if "400" in status or "Dropped" in status else "🇵🇸9")
             print(f"  {marker} {status}: {count} responses")
 
     print("=" * 65)
@@ -168,16 +168,16 @@ def main():
         return
 
     # User Configuration Input Engine
-    print("\📝¸ [CONFIG ENGINE] Adjust parameters or press ENTER for Infinity parameters:")
+    print("\📝 [CONFIG ENGINE] Adjust parameters or press ENTER for Infinity parameters:")
 
-    packet_input = input(" 🥳¸ Packets to stream [Default: 📝¸]: ").strip()
+    packet_input = input(" 🥳 Packets to stream [Default: 📝]: ").strip()
     infinite_packets = False if packet_input else True
     total_packets = int(packet_input) if not infinite_packets else 0
 
-    thread_input = input(" 📝¸ Concurrent thread pipes [Default: Max OS Threading]: ").strip()
+    thread_input = input(" 📝 Concurrent thread pipes [Default: Max OS Threading]: ").strip()
     threads = int(thread_input) if thread_input else None
 
-    timeout_input = input(" 📝¸ Timeout limit (Seconds) [Default: 📝¸/None]: ").strip()
+    timeout_input = input(" 📝 Timeout limit (Seconds) [Default: 📝/None]: ").strip()
     timeout = float(timeout_input) if timeout_input else None
 
     print("🇵🇸“🇵🇸 " + "-" * 61 + " 🇵🇸“🇵🇸")
@@ -191,7 +191,7 @@ def main():
     try:
         with ThreadPoolExecutor(max_workers=threads) as executor:
             if infinite_packets:
-                print("🇵🇸, [ATTACK ENGAGED] Continuous transmission online. Strike [Ctrl+C] to compile final data telemetry...\n")
+                print("🇵🇸 [ATTACK ENGAGED] Continuous transmission online. Strike [Ctrl+C] to compile final data telemetry...\n")
                 while True:
                     executor.submit(execute_network_probe, host, port, scheme, path, timeout, net_type)
                     time.sleep(0.001)  # Mitigates processor starvation
