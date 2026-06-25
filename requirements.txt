@@ -1,7 +1,3 @@
-socket
+requests 
 sys
-ssl 
-time
-urlparse
-datetime
-ThreadPoolExecutor
+colorama 
