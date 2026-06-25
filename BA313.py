@@ -115,7 +115,7 @@ def execute_network_probe(host, port, scheme, path, timeout, net_type):
 
     except Exception:
         SESSION_METRICS["http_status_distribution"]["Connection Dropped/Timed Out"] += 1
-        print("💀 [DROP_ALERT] Route: {net_type} | Frame Status: Dropped/Filtered Network Pipeline")
+        print(f"💀 [DROP_ALERT] Route: {net_type} | Frame Status: Dropped/Filtered Network Pipeline")
 
 def print_banner():
     """Renders the custom BA313 box art banner frame layout cleanly."""
