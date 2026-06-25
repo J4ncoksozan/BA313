@@ -1,4 +1,4 @@
-iimport socket
+import socket
 import sys
 import ssl
 import time
