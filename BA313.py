@@ -103,13 +103,13 @@ def execute_network_probe(host, port, scheme, path, timeout, net_type):
         SESSION_METRICS["http_status_distribution"][category] += 1
 
         # Cyberpunk live status markers
-        status_emoji = "ðŸ”¹"
+        status_emoji = "🇵🇸”¹"
         if status_str == "200":
-            status_emoji = "ðŸŸ¢"
+            status_emoji = "🇵🇸"
         elif status_str.startswith("3"):
-            status_emoji = "ðŸŸ¡"
+            status_emoji = "🇵🇸"
         elif status_str.startswith("4") or status_str.startswith("5"):
-            status_emoji = "ðŸ”´"
+            status_emoji = "🇵🇸”´"
 
         print(f"{status_emoji} [NET_STREAM] Route: {net_type} | Status: {status_str} | Latency: {rtt_latency:.4f}s")
 
@@ -119,10 +119,11 @@ def execute_network_probe(host, port, scheme, path, timeout, net_type):
 
 def print_banner():
     """Renders the custom BA313 box art banner frame layout cleanly."""
-    print("â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”")
-    print("â”‚ â–ˆâ–€â–„ â–ˆ   â–ˆâ–€â–ˆ â–ˆâ–€â–€ â–ˆâ–„â–€  â–ˆâ–€â–ˆ â–ˆâ–€â–„ â–ˆâ–€â–„â–€â–ˆ â–ˆ â–ˆ  â–ˆâ–€â–ˆ â–„â–ˆ  â–ˆâ–€â–ˆ    â”‚")
-    print("â”‚ â–ˆâ–„â–ˆ â–ˆâ–„â–„ â–ˆâ–€â–ˆ â–ˆâ–„â–„ â–ˆ â–ˆ  â–ˆâ–€â–ˆ â–ˆâ–€â–„ â–ˆ â–ˆ â–ˆ â–€â–„â–ˆ  â–„â–„â–ˆ  â–ˆ  â–„â–„â–ˆ    â”‚")
-    print("â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜")
+    print("■■■    ■          ■        ■■■  ■   ■     ■      ■■■     ■■  ■■    ■     ■")
+    print("■   ■   ■        ■  ■      ■     ■  ■     ■ ■     ■   ■   ■  ■  ■     ■   ■")
+    print("■■■    ■       ■■■■■     ■     ■■      ■■■■    ■■      ■     ■      ■■■")
+    print("■   ■   ■      ■      ■    ■     ■  ■    ■    ■   ■  ■    ■     ■        ■")
+    print("■■■    ■■■  ■        ■   ■■■  ■   ■  ■      ■  ■   ■   ■     ■        ■")
     print(" >> BA313 MATRIX ENGAGED // PALESTINE PERSISTENCE ACTIVE\n")
 
 def print_summary():
