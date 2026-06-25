@@ -144,7 +144,7 @@ def print_summary():
     print("\n[🇵🇸] TARGET PROTOCOL DISTRIBUTION:")
     for status, count in SESSION_METRICS["http_status_distribution"].items():
         if count > 0:
-            marker = "🇵🇸," if "200" in status else ("🇵🇸¸" if "400" in status or "Dropped" in status else "🇵🇸‘")
+            marker = "🇵🇸" if "200" in status else ("🇵🇸¸" if "400" in status or "Dropped" in status else "🇵🇸‘")
             print(f"  {marker} {status}: {count} responses")
 
     print("=" * 65)
@@ -209,5 +209,5 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print("\🇵🇸 [FORCED ABORT] Hard break intercepted. System RAM caches dropped immediately.")
+        print("\🇵🇸, [FORCED ABORT] Hard break intercepted. System RAM caches dropped immediately.")
         sys.exit()
